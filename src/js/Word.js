@@ -1,14 +1,13 @@
 import Language from './Language'
 export default class Word {
-  constructor(word, type, lang) {
-    this.BsClass = 'col-lg-3'
-    this.target = '.js-word'
+  constructor(word, lang, type) {
     this.word = word.trim()
     this.type = type || 'word'
     this.translationWords = []
     this.definition = []
-    this.lang = lang instanceof Language ? lang : new Language('unknown')
-    this.renderWord()
+    this.lang = lang || 'unknowmn'
+    this.BsClass = 'col-lg-3'
+    this.target = '.js-word'
   }
 
   get() {
@@ -22,6 +21,10 @@ export default class Word {
 
   updateType(type) {
     type = type.trim()
+    this.type = type.length > 0 ? type : this.type
+  }
+  updateType(lang) {
+    lang = lang.trim()
     this.type = type.length > 0 ? type : this.type
   }
 

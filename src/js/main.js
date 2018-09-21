@@ -1,6 +1,7 @@
 import { initModule } from './utils'
 import Alphabet from './Alphabet'
 import Word from './Word'
+import Language from './Language'
 const alphabet = [
   'a',
   'b',
@@ -29,7 +30,7 @@ const alphabet = [
   'y',
   'z',
 ]
-const word = [
+const words = [
   'ABONNIRONS',
   'ABONNIRONT',
   'ABORD',
@@ -81,4 +82,8 @@ const word = [
 ]
 
 new Alphabet('fran8', ...alphabet)
-word.forEach(word => new Word(word))
+const french = new Language('francais')
+
+console.log(french)
+words.forEach(word => french.addOneWordToDictionnary(word))
+french.renderDico()
